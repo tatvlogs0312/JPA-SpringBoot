@@ -33,7 +33,7 @@ public class BookServiceImpl implements BookService {
   public Book getBookByID(Long id) {
     Optional<Book> book = bookRepository.findById(id);
     if (book.isEmpty()) {
-      throw new NotFoundException("Không tìm thấy sách với id = " + id, 500);
+      throw new NotFoundException("Không tìm thấy sách với id = " + id, 400);
     }
     return book.get();
   }
