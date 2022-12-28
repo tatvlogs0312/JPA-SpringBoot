@@ -1,4 +1,4 @@
-package com.example.jpapart1.request;
+package com.example.jpapart1.dto;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -7,12 +7,11 @@ import lombok.Setter;
 @RequiredArgsConstructor
 @Getter
 @Setter
-public class BookRequest {
-  private Long id;
+public class BookDataDTO {
   private String bookName;
-  private int year;
+  private String authorName;
   private String language;
-  private int numberOfPages;
+  private Integer numberOfPage;
   private String origin;
-  private Long idAuthor;
+  private Integer year;
 }

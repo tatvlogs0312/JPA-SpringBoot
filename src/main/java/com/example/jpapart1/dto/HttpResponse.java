@@ -18,28 +18,11 @@ public class HttpResponse {
     private String message;
     private Set<String> errors;
 
-
-    // Constructor never used. Can be (and should be) deleted
-    public HttpResponse() {
-        this.timeStamp = new Date();
-        this.httpStatusCode = 200;
-        this.httpStatus = HttpStatus.OK;
-        this.errors = Collections.EMPTY_SET;
-        this.message = "Success";
-    }
-
     public HttpResponse(int httpStatusCode, HttpStatus httpStatus, String error, String message) {
         this.timeStamp = new Date();
         this.httpStatusCode = httpStatusCode;
         this.httpStatus = httpStatus;
         this.errors = Set.of(error);
-        this.message = message;
-    }
-    public HttpResponse(int httpStatusCode, HttpStatus httpStatus, Set<String> errors, String message) {
-        this.timeStamp = new Date();
-        this.httpStatusCode = httpStatusCode;
-        this.httpStatus = httpStatus;
-        this.errors = errors;
         this.message = message;
     }
 }

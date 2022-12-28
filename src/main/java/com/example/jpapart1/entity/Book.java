@@ -1,5 +1,6 @@
 package com.example.jpapart1.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -16,7 +17,7 @@ public class Book {
 
   @Id
   @GeneratedValue(generator = "book_seq",strategy = GenerationType.SEQUENCE)
-  @SequenceGenerator(name = "book_seq",sequenceName = "book_id_seq", allocationSize = 1)
+  @SequenceGenerator(name = "book_seq",sequenceName = "book_seq_id", allocationSize = 1)
   private Long id;
 
   @Column(name = "book_name")
@@ -33,5 +34,11 @@ public class Book {
 
   @Column(name = "origin")
   private String origin;
+
+  //@ManyToOne => 1 sách chỉ có 1 tác giả
+  @ManyToOne
+  @JoinColumn(name = "author_id")
+  @JsonIgnore
+  private Author author;
 
 }

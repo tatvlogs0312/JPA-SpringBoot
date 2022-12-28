@@ -1,8 +1,9 @@
 package com.example.jpapart1.controller;
 
+import com.example.jpapart1.dto.BookDataDTO;
 import com.example.jpapart1.entity.Book;
 import com.example.jpapart1.request.BookRequest;
-import com.example.jpapart1.service.BookService;
+import com.example.jpapart1.service.book.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -86,5 +87,13 @@ public class BookController {
   public ResponseEntity<String> deleteBook(@PathVariable Long id){
     bookService.deleteBook(id);
     return new ResponseEntity<>("Xóa thành công",HttpStatus.OK);
+  }
+
+  /**
+   * @return danh sách book kèm thông tin tác giả
+   */
+  @GetMapping("/get-book-data")
+  public ResponseEntity<List<BookDataDTO>> getBookData(){
+    return new ResponseEntity<>(bookService.getBookData(),HttpStatus.OK);
   }
 }
